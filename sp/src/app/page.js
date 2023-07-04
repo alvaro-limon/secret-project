@@ -80,7 +80,7 @@ export default function Home() {
               <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
                 Una dinámica simple: Tú respondes una pregunta correctamente...
               </Typography>
-              <MyQuestion name1='jack' name2='toby' solved={handleSolvedQuestions}>
+              <MyQuestion question='Ej. ¿Cual es el nombre de mi perro? (cualquiera)' name1='jack' name2='toby' solved={handleSolvedQuestions}>
                 <Button variant='contained'sx={{fontWeight:'bold', color:'text.primary', mt:3}}  id='btn_s2' onClick={
                     () => {
                       document.getElementById('section_5').scrollIntoView({ behavior:'smooth',block:'start'});

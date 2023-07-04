@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState } from 'react';
-import { TextField, Box, Button } from '@mui/material';
+import { TextField, Box, Button, Typography } from '@mui/material';
 import MyPopup from './popup';
 
-const MyQuestion = ({children, solved, name1, name2=''}) => {
+const MyQuestion = ({children, solved, question, name1, name2=''}) => {
   const [inputText, setInputText] = useState('');
   const [showDiv, setShowDiv] = useState(false);
 
@@ -22,10 +22,10 @@ const MyQuestion = ({children, solved, name1, name2=''}) => {
   };
 
   return (
-    <Box sx={{display:'flex', flexDirection:'column', mt:3}}>
+    <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', mt:3}}>
+        <Typography variant='body2' sx={{fontStyle:'italic', color:'text.secondary', mb:1}}>{question}</Typography>
         <Box sx={{display:'flex', gap:1}}>
             <TextField variant='outlined'
-                label="Nombre de mi perro (cualquiera)"
                 value={inputText}
                 onChange={handleInputChange}
                 sx={{height:1/1, outline:'primary.main'}}

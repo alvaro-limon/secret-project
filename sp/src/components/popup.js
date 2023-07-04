@@ -7,7 +7,7 @@ import { Box } from '@mui/material';
 import styles from '../app/page.module.css'
 import '../app/page.module.css'
 
-function MyComponent({children}) {
+function MyPopup ({children}) {
   return (
     <Box sx={{
       width:1/1,
@@ -35,4 +35,4 @@ function MyComponent({children}) {
   ) 
 }
 
-export default MyComponent
+export default MyPopup

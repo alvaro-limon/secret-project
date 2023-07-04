@@ -8,10 +8,10 @@ const AnimationFadeOut = ({complete}) => {
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 2}}
+        initial={{ opacity: 1, scale:1 }}
+        animate={{ opacity: 0, scale:0 }}
+        exit={{ opacity: 0, scale:0 }}
+        transition={{ duration: 0.6, type:'spring', delay:1}}
         style={{
           width: '100%',
           height: '100vh',

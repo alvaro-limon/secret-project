@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState } from 'react';
-import { TextField, Box, Button, Typography } from '@mui/material';
+import { TextField, Box, Button, Typography, MenuItem } from '@mui/material';
 import MyPopup from './popup';
 
-const MyQuestion = ({children, solved, question, ans1, ans2=''}) => {
+const MyQuestion = ({children, solved, question, ans1, ans2 = '', options}) => {
   const [inputText, setInputText] = useState('');
   const [showDiv, setShowDiv] = useState(false);
 
@@ -26,14 +26,19 @@ const MyQuestion = ({children, solved, question, ans1, ans2=''}) => {
   };
 
   return (
-    <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', mt:3}}>
+    <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', mt:3, maxWidth:1}}>
         <Typography variant='body2' sx={{fontStyle:'italic', color:'text.secondary', mb:1}}>{question}</Typography>
         <Box sx={{display:'flex', justifyContent:'center', gap:1}}>
             <TextField variant='outlined'
                 value={inputText}
                 onChange={handleInputChange}
-                sx={{height:1/1, outline:'primary.main'}}
-            />
+                sx={{height:1/1, outline:'primary.main', maxWidth:250}}
+                select
+            >
+                {options.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>{option.text}</MenuItem>
+                ))}
+            </TextField>
             <Button variant='outlined'sx={{height:56, color:'text.primary', borderColor:'#729483'}} onClick={handleSubmit}>OK!</Button>
       </Box>
       <Box sx={{display:'flex', justifyContent:'center'}}>

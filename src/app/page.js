@@ -22,7 +22,7 @@ export default function Home() {
     setAnimationComplete(true);
   };
 
-  const [solvedQuestions, setSolvedQuestions] = useState(0);
+  const [solvedQuestions, setSolvedQuestions] = useState(100);
   const handleSolvedQuestions = () => {
     setSolvedQuestions(solvedQuestions + 1)
   };

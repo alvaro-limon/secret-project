@@ -5,12 +5,15 @@ import styles from './page.module.css'
 import { maintheme } from './theme'
 import { useState, useRef } from 'react'
 
-import { Box, Button, Container, ThemeProvider, Typography } from '@mui/material'
+import { Box, Button, Container, List, Paper, ThemeProvider, Typography } from '@mui/material'
 import MyPopup from '@/components/popup'
 import AnimationFadeOut from '@/components/intro'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import MyQuestion from '@/components/question'
 import MyMultQuestion from '@/components/multquestion'
+
+import Image from 'next/image'
+import Map from '@/components/map'
 
 export default function Home() {
 
@@ -132,7 +135,7 @@ export default function Home() {
           <Box id='section_7' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
             <MyPopup>
               <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
-                Viendo para atrás, cuando nos conocimos...
+                Viendo para atrás...
               </Typography>
               <MyMultQuestion question='¿Cómo fue que nos conocimos?' ans1='option2' solved={handleSolvedQuestions} options={[
                 { value: 'option1', text: 'En una camioneta, camino a la obra' },
@@ -154,7 +157,7 @@ export default function Home() {
           <Box id='section_8' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
             <MyPopup>
               <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
-                La primera vez que te invité a un plan, fue a...
+                La primera vez que salimos a un plan,
               </Typography>
               <MyMultQuestion question='¿A dónde fuimos?' ans1='option3' solved={handleSolvedQuestions} options={[
                 { value: 'option1', text: 'Una tienda de helado' },
@@ -176,7 +179,7 @@ export default function Home() {
           <Box id='section_9' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
             <MyPopup>
               <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
-                En uno de nuestros primeros planes, íbamos a ir a un partido de baseball.
+                En uno de nuestros primeros planes, decidimos a ir a un partido de baseball...
               </Typography>
               <MyMultQuestion question='¿A dónde fuimos?' ans1='option3' solved={handleSolvedQuestions} options={[
                 { value: 'option1', text: 'A ver a los mariachis de Jalisco' },
@@ -215,8 +218,6 @@ export default function Home() {
           </Box>
           )}
 
-          
-
           {/* section */}
           {solvedQuestions >= 5 && (
           <Box id='section_11' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
@@ -225,7 +226,7 @@ export default function Home() {
                 Nada mal... ¡Sí te acuerdas! 
               </Typography>
               <Typography variant='h6' sx={{textAlign:'center', color:'text.secondary', fontStyle:'italic'}}>
-                A decir verdad, yo tiendo a olvidar las cosas, pero hay unas que no se olvidan...
+                A decir verdad, yo tiendo a olvidar, pero hay ciertas cosas que no se olvidan...
               </Typography>
               <Button variant='contained'sx={{fontWeight:'bold', color:'text.primary', mt:3}}  id='btn_s2' onClick={
                   () => {
@@ -241,12 +242,12 @@ export default function Home() {
           <Box id='section_12' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
             <MyPopup>
               <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
-                Siempre me ha gustado ir al cine,
+                Conociendote, he notado varias cualidades especiales de tí,
               </Typography>
               <Typography variant='h6' sx={{textAlign:'center', color:'text.secondary', fontStyle:'italic'}}>
-                pero me ha gustado mucho más  ir con tu compañía.
+                Como tus intereses de lectura :{")"}.
               </Typography>
-              <MyQuestion question='¿Cuál fue la primera película que vimos juntos?' ans1='jack' ans2='asteroid city' solved={handleSolvedQuestions}>
+              <MyQuestion question='¿Acerca de qué te gustaba leer?' ans1='jack' ans2='psicopatas' solved={handleSolvedQuestions}>
                 <Button variant='contained'sx={{fontWeight:'bold', color:'text.primary', mt:3}}  id='btn_s2' onClick={
                     () => {
                       document.getElementById('section_13').scrollIntoView({ behavior:'smooth',block:'start'});
@@ -262,7 +263,7 @@ export default function Home() {
           <Box id='section_13' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
             <MyPopup>
               <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
-                Aprendí que falla tu sentido de dirección en lugares saturados. 
+                Aprendí que a veces falla tu sentido de dirección...
               </Typography>
               <Typography variant='h6' sx={{textAlign:'center', color:'text.secondary', fontStyle:'italic'}}>
                 {'"Quédate cerca, no vayas a chocar"'}
@@ -270,7 +271,7 @@ export default function Home() {
               <MyMultQuestion question='¿Cuándo fué que me diste la mano por primera vez?' ans1='option3' solved={handleSolvedQuestions} options={[
                 { value: 'option1', text: 'En tequila, sentados en una mesa' },
                 { value: 'option2', text: 'Habiendo salido de casa de chei' },
-                { value: 'option3', text: 'En el estadio, camino al auto' }
+                { value: 'option3', text: 'En el estadio, cruzando la calle' }
               ]}>
                 <Button variant='contained'sx={{fontWeight:'bold', color:'text.primary', mt:3}}  id='btn_s2' onClick={
                     () => {
@@ -278,6 +279,154 @@ export default function Home() {
                     }
                 }><ArrowDownwardIcon/></Button>
               </MyMultQuestion>
+            </MyPopup>
+          </Box>
+          )}
+
+          {/* section */}
+          {solvedQuestions >= 7 && (
+          <Box id='section_14' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
+            <MyPopup>
+              <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
+                ...y que tienes un buen sentido del humor.
+              </Typography>
+              <Typography variant='h6' sx={{textAlign:'center', color:'text.secondary', fontStyle:'italic'}}>
+                {'"Yo me llamo Ulises. ¿Y tú?"'}
+              </Typography>
+              <MyQuestion question='¿Cómo te presentaste?' ans1='Anacleta' solved={handleSolvedQuestions}>
+                <Button variant='contained'sx={{fontWeight:'bold', color:'text.primary', mt:3}}  id='btn_s2' onClick={
+                    () => {
+                      document.getElementById('section_15').scrollIntoView({ behavior:'smooth',block:'start'});
+                    }
+                }><ArrowDownwardIcon/></Button>
+              </MyQuestion>
+            </MyPopup>
+          </Box>
+          )}
+
+          {/* section */}
+          {solvedQuestions >= 8 && (
+          <Box id='section_15' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
+            <MyPopup>
+              <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
+                También aprendí que tienes un gran corazón,
+              </Typography>
+              <Typography variant='h6' sx={{textAlign:'center', color:'text.secondary', fontStyle:'italic'}}>
+                Y un talento innato para convivir con niños. {"(tal vez por ser de la edad ;))"}
+              </Typography>
+              <Button variant='contained'sx={{fontWeight:'bold', color:'text.primary', mt:3}}  id='btn_s2' onClick={
+                  () => {
+                    document.getElementById('section_16').scrollIntoView({ behavior:'smooth',block:'start'})
+                  }
+              }><ArrowDownwardIcon/></Button>
+            </MyPopup>
+          </Box>
+          )} 
+
+          {/* section */}
+          {solvedQuestions >= 8 && (
+          <Box id='section_16' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
+            <MyPopup>
+              <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
+                Que tienes la capacidad de ver las cosas con humor...
+              </Typography>
+              <Typography variant='h6' sx={{textAlign:'center', color:'text.secondary', fontStyle:'italic'}}>
+                ¡Incluyendo la carrilla!
+              </Typography>
+              <MyQuestion question='¿Qué es algo que te gusta? jajaja!' ans1='la velocidad' ans2='velocidad' solved={handleSolvedQuestions}>
+                <Button variant='contained'sx={{fontWeight:'bold', color:'text.primary', mt:3}}  id='btn_s2' onClick={
+                    () => {
+                      document.getElementById('section_17').scrollIntoView({ behavior:'smooth',block:'start'});
+                    }
+                }><ArrowDownwardIcon/></Button>
+              </MyQuestion>
+            </MyPopup>
+          </Box>
+          )}
+
+          {/* section */}
+          {solvedQuestions >= 9 && (
+          <Box id='section_17' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
+            <MyPopup>
+              <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
+                ...y que llevas alegría a donde vayas.
+              </Typography>
+              <Button variant='contained'sx={{fontWeight:'bold', color:'text.primary', mt:3}}  id='btn_s2' onClick={
+                  () => {
+                    document.getElementById('section_18').scrollIntoView({ behavior:'smooth',block:'start'})
+                  }
+              }><ArrowDownwardIcon/></Button>
+            </MyPopup>
+          </Box>
+          )}
+
+          {/* section */}
+          {solvedQuestions >= 9 && (
+          <Box id='section_18' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
+            <MyPopup>
+              <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
+                ¡Muy bien! Solamente queda una más antes de llegar al final.
+              </Typography>
+              <Button variant='contained'sx={{fontWeight:'bold', color:'text.primary', mt:3}}  id='btn_s2' onClick={
+                  () => {
+                    document.getElementById('section_19').scrollIntoView({ behavior:'smooth',block:'start'})
+                  }
+              }><ArrowDownwardIcon/></Button>
+            </MyPopup>
+          </Box>
+          )}
+
+          {/* section */}
+          {solvedQuestions >= 9 && (
+          <Box id='section_19' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
+            <MyPopup>
+              <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
+                Pero no es una pregunta.
+              </Typography>
+              <Typography variant='h6' sx={{textAlign:'center', color:'text.secondary', fontStyle:'italic'}}>
+                Solamente es un gracias. Gracias por haberte dado a conocer, por acompañarme, por convivir con las personas que aprecio,
+                ver películas raras conmigo, y tolerar todos los chistes de humor negro {"(buenísimos)"}. 
+                ¡Te quiero mucho!
+              </Typography>
+              <Button variant='contained'sx={{fontWeight:'bold', color:'text.primary', mt:3}}  id='btn_s2' onClick={
+                  () => {
+                    document.getElementById('section_20').scrollIntoView({ behavior:'smooth',block:'start'})
+                    handleSolvedQuestions()
+                  }
+              }><ArrowDownwardIcon/></Button>
+            </MyPopup>
+          </Box>
+          )}
+
+          {/* section */}
+          {solvedQuestions >= 9 && (
+          <Box id='section_20' sx={{height:'100vh', width:1, display:'flex', justifyContent:'center', alignItems:'center'}}>
+            <MyPopup>
+              <Typography variant='h5' sx={{textAlign:'center', color:'text.primary'}}>
+                Ahora si, ¡sorpresa!
+              </Typography>
+              <Paper elevation={3} sx={{width:1, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:3, mt:2, pt:3, pb:6, bgcolor:'white'}}>
+                <Box sx={{margin:3}}>
+                  <Image src='/froggif.gif' width={50} height={50} alt=''/>
+                </Box>
+                
+                <Typography variant='h6' sx={{textAlign:'center', color:'text.secondary', fontStyle:'italic'}}>
+                  ¡Felicidades!
+                </Typography>
+                <Typography variant='h6' sx={{textAlign:'center', color:'text.secondary', fontStyle:'italic'}}>
+                  Este ticket es válido para:
+                </Typography>
+                <Typography variant='h6' sx={{textAlign:'left', color:'text.secondary', fontStyle:'italic', mb:2}}>
+                  <ul>
+                    <li>Un abrazo</li>
+                    <li>Unas flores</li>
+                  </ul>
+                </Typography>
+                <Typography variant='h6' sx={{textAlign:'center', color:'text.secondary', fontStyle:'italic', mb:2}}>
+                  Lo único que tienes que hacer es mostrarlo a tu distribuidor más cercano.
+                </Typography>
+                <Map address="Ricardo Palma 3033"/>
+              </Paper>
             </MyPopup>
           </Box>
           )}
